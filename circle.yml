@@ -4,6 +4,8 @@ machine:
 environment:
   CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
 test:
-  override:
-    - 'cumulusci2 task run deploy --org devorg1 -o path "F:\Swagat\Workspace\CircleCITest\src"'
-    - 'cumulusci2 task run deploy --org devorg2 -o path "F:\Swagat\Workspace\CircleCITest\src"'
+  test:
+  pre:
+    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg1 -o path "F:\Swagat\Workspace\CircleCITest\src"; fi'
+    #- 'cci task run deploy --org devorg1 -o path "F:\Swagat\Workspace\CircleCITest\src"'
+    #- 'cci task run deploy --org devorg2 -o path "F:\Swagat\Workspace\CircleCITest\src"'
