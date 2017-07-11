@@ -1,0 +1,6 @@
+project:
+    name: MyPersonalDevOrg
+    package:
+        name: My Personal Dev Org
+        namespace: talsaniaswagat
+        api_version: 40.0
