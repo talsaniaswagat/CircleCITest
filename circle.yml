@@ -5,8 +5,5 @@ environment:
   CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
 test:
   override:
-    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg1 -o path src'
-    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg2 -o path src'
-  post:
-    - 'mkdir -p $CIRCLE_TEST_REPORTS/junit/'
-    - 'cp test_results.xml $CIRCLE_TEST_REPORTS/junit/'
+    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg1 -o path "/src"'
+    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg2 -o path "/src"'
