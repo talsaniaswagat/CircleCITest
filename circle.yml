@@ -9,8 +9,8 @@ dependencies:
     - 'pip install --upgrade -r requirements.txt'
 test:
   override:
-    - 'cci task run deploy --org devorg1 -o path src'
-    - 'cci task run deploy --org devorg1 -o path src'
+    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg1 -o path src'
+    - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg2 -o path src'
   post:
     - 'mkdir -p $CIRCLE_TEST_REPORTS/junit/'
     - 'cp test_results.xml $CIRCLE_TEST_REPORTS/junit/'
