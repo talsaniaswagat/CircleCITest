@@ -3,10 +3,6 @@ machine:
     version: 2.7.12
 environment:
   CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
-dependencies:
-  override:
-    - 'pip install --upgrade pip'
-    - 'pip install --upgrade -r requirements.txt'
 test:
   override:
     - 'if [[ $CIRCLE_BRANCH == "master" ]]; then cci task run deploy --org devorg1 -o path src'
