@@ -8,6 +8,5 @@ test:
   pre:
     - pip install cumulusci
     - 'if ([ $CIRCLE_BRANCH == "master" ]); then cci task run deploy --org devorg1 -o path "F:\Swagat\Workspace\CircleCITest\src"; fi'
-    
     #- 'cci task run deploy --org devorg1 -o path "F:\Swagat\Workspace\CircleCITest\src"'
     #- 'cci task run deploy --org devorg2 -o path "F:\Swagat\Workspace\CircleCITest\src"'
